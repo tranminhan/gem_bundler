@@ -3,10 +3,10 @@ require 'active_support/inflector'
 module Foodie
   class Food
     def self.portray(food)
-      if food == "Broccoli"
-        "Gross"
+      if food.casecmp('broccoli').zero?
+        'Gross'
       else
-        "Delicious"
+        'Delicious'
       end
     end
 

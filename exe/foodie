@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require 'foodie'
+require 'foodie/cli'
+Foodie::CLI.start

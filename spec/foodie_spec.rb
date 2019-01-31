@@ -2,14 +2,14 @@ require 'foodie'
 
 RSpec.describe Foodie::Food do
   it 'broccoli is gross' do
-    expect(Foodie::Food.portray("Broccoli")).to eql("Gross")
+    expect(Foodie::Food.portray('Broccoli')).to eql('Gross')
   end
 
-  it 'anything else is delicious' do 
-    expect(Foodie::Food.portray("Not Broccoli")).to eql("Delicious")
+  it 'anything else is delicious' do
+    expect(Foodie::Food.portray('Not Broccoli')).to eql('Delicious')
   end
 
-  it 'pluralizes a word' do 
-    expect(Foodie::Food.pluralize("Tomato")).to eq("Tomatoes")
+  it 'pluralizes a word' do
+    expect(Foodie::Food.pluralize('Tomato')).to eq('Tomatoes')
   end
 end
