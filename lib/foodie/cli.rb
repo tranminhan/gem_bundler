@@ -1,5 +1,6 @@
 require 'thor'
 require 'foodie'
+require 'foodie/generators/recipe'
 
 module Foodie
   class CLI < Thor
@@ -9,9 +10,19 @@ module Foodie
     end
 
     desc 'pluralize ITEM', 'Say it professionally as an englishman'
-    method_option :word, aliases: '-w'
+    method_option :word, type: :string, aliases: '-w'
+    method_option :uppercase, type: :boolean, default: false
     def pluralize
-      puts Foodie::Food.pluralize(options[:word])
+      if options[:uppercase]
+        puts Foodie::Food.pluralize(options[:word].upcase)
+      else
+        puts Foodie::Food.pluralize(options[:word])
+      end
+    end
+
+    desc 'recipe', 'Generate a recipe scaffold'
+    def recipe(group, name)
+      Foodie::Generators::Recipe.start([group, name])
     end
   end
 end
